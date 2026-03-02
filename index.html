@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 WELCOME TO MY HOME PAGE 🏠</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body background="bg.gif">
+    
+    <!-- MARQUEE HEADER -->
+    <marquee behavior="scroll" direction="left" bgcolor="#0000FF">
+        <font color="#FFFF00" size="5">🌟 WELCOME TO MY AWESOME HOMEPAGE 🌟 🚀 BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 🚀 🌟 UNDER CONSTRUCTION 🌟</font>
+    </marquee>
+    
+    <!-- MAIN CONTENT TABLE -->
+    <table border="5" cellpadding="10" cellspacing="0" bgcolor="#FF00FF" align="center" width="80%">
+        <tr>
+            <td bgcolor="#00FFFF">
+                <center>
+                    <h1><blink><font color="#FF0000" size="7">🏠 MY HOME PAGE 🏠</font></blink></h1>
+                    <img src="house.gif" alt="Animated House" width="150" height="150">
+                    <br><br>
+                    <font size="4" color="#000080">
+                        <strong>Est. 2025 - The Coolest Spot on the Web!</strong>
+                    </font>
+                </center>
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+    
+    <!-- NAVIGATION TABLE -->
+    <table border="3" cellpadding="5" cellspacing="0" bgcolor="#FFFF00" align="center" width="60%">
+        <tr>
+            <td align="center">
+                <a href="#about"><font color="#0000FF" size="4"><strong>📋 ABOUT ME</strong></font></a>
+            </td>
+            <td align="center">
+                <a href="#hobbies"><font color="#FF0000" size="4"><strong>🎮 MY HOBBIES</strong></font></a>
+            </td>
+            <td align="center">
+                <a href="#guestbook"><font color="#008000" size="4"><strong>📖 GUESTBOOK</strong></font></a>
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+    
+    <!-- VISITOR COUNTER -->
+    <center>
+        <table border="2" bgcolor="#00FF00">
+            <tr>
+                <td>
+                    <font color="#000000" size="3">
+                        <strong>👁️ VISITOR #</strong>
+                        <span id="counter">00042</span>
+                        <strong>👁️</strong>
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </center>
+    
+    <br>
+    
+    <!-- ABOUT SECTION -->
+    <a name="about"></a>
+    <table border="4" cellpadding="8" cellspacing="0" bgcolor="#FFA500" align="center" width="70%">
+        <tr>
+            <td bgcolor="#FFE4B5">
+                <h2><font color="#8B0000" size="6">📋 ABOUT ME 📋</font></h2>
+                <hr color="#8B0000">
+                <font size="4" color="#000080">
+                    <p><strong>Hello there, net surfer!</strong></p>
+                    <p>Welcome to my humble corner of the World Wide Web! I'm the proud owner of this digital homestead.</p>
+                    <p>🏠 <strong>Location:</strong> My Local Network Only!</p>
+                    <p>💻 <strong>Favorite Browser:</strong> Netscape Navigator</p>
+                    <p>🎵 <strong>Favorite Music:</strong> MIDI Files</p>
+                    <p>🌐 <strong>Online Since:</strong> 2025</p>
+                </font>
+                <br>
+                <center>
+                    <img src="under_construction.gif" alt="Under Construction" width="200" height="50">
+                </center>
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+    
+    <!-- HOBBIES SECTION -->
+    <a name="hobbies"></a>
+    <table border="4" cellpadding="8" cellspacing="0" bgcolor="#9370DB" align="center" width="70%">
+        <tr>
+            <td bgcolor="#E6E6FA">
+                <h2><font color="#4B0082" size="6">🎮 MY HOBBIES 🎮</font></h2>
+                <hr color="#4B0082">
+                <font size="4" color="#000000">
+                    <ul>
+                        <li><strong>🌐 Surfing the Information Superhighway</strong></li>
+                        <li><strong>🎮 Playing DOOM</strong></li>
+                        <li><strong>📧 Sending Emails</strong></li>
+                        <li><strong>💬 Chatting on IRC</strong></li>
+                        <li><strong>🎵 Collecting MIDI Files</strong></li>
+                        <li><strong>🖼️ Making Animated GIFs</strong></li>
+                    </ul>
+                </font>
+                <br>
+                <center>
+                    <marquee behavior="alternate" width="200">
+                        <font color="#FF0000" size="5">🎮 COOL! 🎮</font>
+                    </marquee>
+                </center>
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+    
+    <!-- GUESTBOOK -->
+    <a name="guestbook"></a>
+    <table border="4" cellpadding="8" cellspacing="0" bgcolor="#00CED1" align="center" width="70%">
+        <tr>
+            <td bgcolor="#AFEEEE">
+                <h2><font color="#008B8B" size="6">📖 GUESTBOOK 📖</font></h2>
+                <hr color="#008B8B">
+                <font size="4" color="#000080">
+                    <p><strong>Sign my guestbook!</strong></p>
+                    <form id="guestbookForm">
+                        <table border="1">
+                            <tr>
+                                <td><strong>Name:</strong></td>
+                                <td><input type="text" name="name" size="30"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Message:</strong></td>
+                                <td><textarea name="message" rows="4" cols="30"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="submit" value="SIGN GUESTBOOK!" style="background-color: #FF00FF; color: #FFFF00; font-weight: bold;">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </font>
+                <div id="guestbookEntries"></div>
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+    
+    <!-- WEBRING -->
+    <center>
+        <table border="3" bgcolor="#FFD700">
+            <tr>
+                <td>
+                    <center>
+                        <font color="#000000" size="3">
+                            <strong>🌐 COOL SITES WEBRING 🌐</strong><br>
+                            [<a href="javascript:void(0)" onclick="alert('Previous site!')">← PREV</a>] 
+                            [<a href="javascript:void(0)" onclick="alert('Random site!')">RANDOM</a>] 
+                            [<a href="javascript:void(0)" onclick="alert('Next site!')">NEXT →</a>]<br>
+                            [<a href="javascript:void(0)" onclick="alert('Join the webring!')">JOIN</a>]
+                        </font>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </center>
+    
+    <br>
+    
+    <!-- FOOTER -->
+    <center>
+        <table border="2" bgcolor="#C0C0C0" width="80%">
+            <tr>
+                <td align="center">
+                    <font color="#000000" size="2">
+                        <strong>📧 Email me:</strong> <a href="mailto:webmaster@localhost">webmaster@localhost</a><br>
+                        <strong>🏠 This page hosted by:</strong> MY LOCAL NETWORK<br>
+                        <strong>📅 Last updated:</strong> <span id="lastUpdated"></span><br>
+                        <strong>🌐 Best viewed in:</strong> 800x600 resolution<br>
+                        <strong>🎵 Now playing:</strong> <blink>Cool MIDI music!</blink>
+                    </font>
+                </td>
+            </tr>
+        </table>
+    </center>
+    
+    <!-- SPARKLE CURSOR EFFECT -->
+    <script src="script.js"></script>
+    
+</body>
+</html>

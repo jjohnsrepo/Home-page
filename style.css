@@ -1,0 +1,233 @@
+/* EARLY INTERNET VIBES CSS - GEOCITIES STYLE */
+
+body {
+    font-family: "Comic Sans MS", "Arial", sans-serif;
+    background-color: #000000;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 10px;
+    background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+}
+
+/* BLINKING TEXT ANIMATION */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+blink {
+    animation: blink 1s infinite;
+}
+
+/* RAINBOW TEXT EFFECT */
+.rainbow {
+    background: linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: rainbow 3s ease-in-out infinite;
+    background-size: 200% 100%;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* GLOWING TEXT */
+.glow {
+    text-shadow: 0 0 10px #FF00FF, 0 0 20px #FF00FF, 0 0 30px #FF00FF, 0 0 40px #FF00FF;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #FF00FF, 0 0 20px #FF00FF, 0 0 30px #FF00FF, 0 0 40px #FF00FF; }
+    to { text-shadow: 0 0 20px #FF00FF, 0 0 30px #FF00FF, 0 0 40px #FF00FF, 0 0 50px #FF00FF; }
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FF00FF;
+    border: 2px solid #FFFF00;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00FFFF;
+    border: 2px solid #FF0000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FFFF00;
+}
+
+/* LINK STYLES */
+a:link {
+    color: #0000FF;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #800080;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #FF0000;
+    text-decoration: underline overline;
+    background-color: #FFFF00;
+}
+
+a:active {
+    color: #008000;
+    text-decoration: none;
+}
+
+/* TABLE ENHANCEMENTS */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 5px 5px 15px rgba(255, 0, 255, 0.5);
+}
+
+td {
+    border: 2px outset #C0C0C0;
+}
+
+/* INPUT STYLING */
+input, textarea {
+    background-color: #FFFF00;
+    border: 3px inset #C0C0C0;
+    color: #000000;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    background-color: #FF00FF;
+    color: #FFFF00;
+    border: 3px outset #C0C0C0;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+input[type="submit"]:hover {
+    background-color: #00FF00;
+    color: #FF0000;
+    border-style: inset;
+}
+
+/* MARQUEE ENHANCEMENTS */
+marquee {
+    border: 3px ridge #FF00FF;
+    padding: 5px;
+}
+
+/* SPARKLE EFFECT */
+.sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    animation: sparkle-float 3s ease-in-out infinite;
+}
+
+@keyframes sparkle-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+    50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+}
+
+/* COUNTER DIGIT STYLE */
+#counter {
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    color: #FF0000;
+    background-color: #FFFF00;
+    padding: 2px 5px;
+    border: 2px solid #000000;
+    letter-spacing: 2px;
+}
+
+/* GUESTBOOK ENTRY STYLE */
+.guestbook-entry {
+    border: 3px double #FF00FF;
+    background-color: #FFFFCC;
+    margin: 10px 0;
+    padding: 10px;
+    color: #000000;
+}
+
+.guestbook-entry .name {
+    font-weight: bold;
+    color: #0000FF;
+    font-size: 1.2em;
+}
+
+.guestbook-entry .message {
+    font-style: italic;
+    color: #800080;
+}
+
+.guestbook-entry .timestamp {
+    font-size: 0.8em;
+    color: #808080;
+    text-align: right;
+}
+
+/* ANIMATED BACKGROUND PATTERN */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 0, 255, 0.1) 35px, rgba(255, 0, 255, 0.1) 70px),
+        repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(0, 255, 255, 0.1) 35px, rgba(0, 255, 255, 0.1) 70px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* CURSOR EFFECT */
+.custom-cursor {
+    cursor: url('data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='), auto;
+}
+
+/* FIRE ANIMATION FOR HEADINGS */
+.fire-text {
+    background: linear-gradient(to top, #FF0000, #FF7F00, #FFFF00, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fire 2s ease-in-out infinite alternate;
+}
+
+@keyframes fire {
+    from { background-position: 0% 100%; }
+    to { background-position: 0% 0%; }
+}
+
+/* NEON SIGN EFFECT */
+.neon {
+    color: #FFFFFF;
+    text-shadow: 
+        0 0 10px #FF00FF,
+        0 0 20px #FF00FF,
+        0 0 30px #FF00FF,
+        0 0 40px #FF00FF,
+        0 0 70px #FF00FF,
+        0 0 80px #FF00FF,
+        0 0 100px #FF00FF,
+        0 0 150px #FF00FF;
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+@keyframes neon-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
