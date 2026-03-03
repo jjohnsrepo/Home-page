@@ -8,14 +8,35 @@ document.getElementById('counter').textContent = String(visitorCount).padStart(5
 visitorCount++;
 localStorage.setItem('visitorCount', visitorCount);
 
-// To calculate date since our wedding
-const pastDate = new Date("2025-05-30");
-const now = new Date();
+// Dynamic date
+    function date_calculator(date){
 
-const diffInMs = now - pastDate; // difference in milliseconds
+    const pastDate = new Date(date);
+    const now = new Date();
+    const diffInMs = now - pastDate; // difference in milliseconds
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+    if(diffInDays > 365){
+        const diffInYears = Math.floor(diffInDays/365)
+        console.log(diffInYears)
+        return diffInYears
+    }else{
+    return diffInDays
+}
+}
+    const days_since_wedding = date_calculator("2025-05-30")
+    const days_since_aurora_birth = date_calculator("2002-9-30")  
+    const days_since_justin_birth = date_calculator("2002-06-06")
+    const birthday_aurora = date_calculator("2026-06-06")
+    const birthday_justin = date_calculator("2026-09-30")
+    
 
-const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-document.getElementById("days_till_wedding").textContent = diffInDays
+    document.getElementById("days_since_wedding").textContent = days_since_wedding
+    document.getElementById("days_since_aurora_birth").textContent = days_since_aurora_birth
+    document.getElementById("days_since_justin_birth").textContent = days_since_justin_birth
+    document.getElementById("birthday_aurora").textContent = birthday_aurora * -1
+    document.getElementById("birthday_justin").textContent = birthday_justin * -1
+
+
 
 
 // Guestbook functionality
