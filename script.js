@@ -8,6 +8,16 @@ document.getElementById('counter').textContent = String(visitorCount).padStart(5
 visitorCount++;
 localStorage.setItem('visitorCount', visitorCount);
 
+// To calculate date since our wedding
+const pastDate = new Date("2025-05-30");
+const now = new Date();
+
+const diffInMs = now - pastDate; // difference in milliseconds
+
+const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+document.getElementById("days_till_wedding").textContent = diffInDays
+
+
 // Guestbook functionality
 document.getElementById('guestbookForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -73,25 +83,3 @@ function createSparkle(x, y) {
         sparkle.remove();
     }, 3000);
 }
-
-// Random alert messages for webring
-const webringMessages = [
-    "Welcome to the coolest site on the web!",
-    "You're visitor #" + Math.floor(Math.random() * 10000),
-    "This site is under construction!",
-    "Best viewed in Netscape Navigator!",
-    "Sign my guestbook!",
-    "Check out my MIDI collection!",
-    "Email me at webmaster@localhost!"
-];
-
-// Random popup on click
-document.addEventListener('click', function() {
-    if (Math.random() > 0.95) {
-        alert(webringMessages[Math.floor(Math.random() * webringMessages.length)]);
-    }
-});
-
-// Console message
-console.log('%c🌐 WELCOME TO MY HOMEPAGE! 🌐', 'color: #FF00FF; font-size: 20px; font-weight: bold;');
-console.log('%cThis is the coolest local-only website!', 'color: #00FFFF; font-size: 16px;');
