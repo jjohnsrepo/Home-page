@@ -1,33 +1,30 @@
 import sqlite3
 
-database = "./home"
+database = "./home.db"
 
-create_table = [ 
-    """CREATE TABLE IF NOT EXISTS projects (
-            id INTEGER PRIMARY KEY, 
+create_table = """CREATE TABLE IF NOT EXISTS guestbook (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, 
             name text NOT NULL, 
-            begin_date DATE, 
-            end_date DATE
-        );""",
+            message text,
+            date_added text default current_timestamp
+                    );"""
 
-    """CREATE TABLE IF NOT EXISTS tasks (
-            id INTEGER PRIMARY KEY, 
-            name TEXT NOT NULL, 
-            priority INT, 
-            project_id INT NOT NULL, 
-            status_id INT NOT NULL, 
-            begin_date DATE NOT NULL, 
-            end_date DATE NOT NULL, 
-            FOREIGN KEY (project_id) REFERENCES projects (id)
-        );"""
-]
+
+insert_data = """
+    insert into guestbook(name,message)
+    values(?,?)
+"""
+data = ("Aurora","My beautiful wife is named aurora")
+
 try:
     with sqlite3.connect(database) as conn:
         print(f"Opened database with version {sqlite3.sqlite_version}")
         cursor = conn.cursor()
-        # for table in create_table:
-        #     cursor.execute(table)
+        cursor.execute(create_table)
+        cursor.execute(insert_data,data)
+        cursor.execute("SELECT * FROM guestbook;")
+        print(cursor.fetchall())
+
         conn.commit()
-        print("Tables created successfully.")
 except sqlite3.OperationalError as e:
     print("Failed to create tables:", e)
