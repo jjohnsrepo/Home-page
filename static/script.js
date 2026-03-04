@@ -40,40 +40,43 @@ localStorage.setItem('visitorCount', visitorCount);
 
 
 // Guestbook functionality
-document.getElementById('guestbookForm').addEventListener('submit', function(e) {
+document.getElementById('guestbookForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const name = document.querySelector('input[name="name"]').value;
-    const message = document.querySelector('textarea[name="message"]').value;
-    
+    const message = document.querySelector('textarea[name="message"]').value
     if (name && message) {
-        const entries = JSON.parse(localStorage.getItem('guestbookEntries') || '[]');
         const entry = {
             name: name,
-            message: message,
-            timestamp: new Date().toLocaleString()
+            message: message
         };
-        
-        entries.unshift(entry);
-        localStorage.setItem('guestbookEntries', JSON.stringify(entries));
+          
+        const response = await fetch("/guest",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(entry)
+        })
+        console.log(await response.text())
         
         displayGuestbookEntries();
-        this.reset();
-        
-        alert('Thanks for signing my guestbook!');
+        this.reset();        
     }
 });
 
-function displayGuestbookEntries() {
-    const entries = JSON.parse(localStorage.getItem('guestbookEntries') || '[]');
+async function displayGuestbookEntries() {
+
+    const response = await fetch("/guests");
+    const entries = await response.json();
     const container = document.getElementById('guestbookEntries');
-    
-    container.innerHTML = entries.slice(0, 5).map(entry => `
-        <div class="guestbook-entry">
-            <div class="name">${entry.name}</div>
-            <div class="message">${entry.message}</div>
-            <div class="timestamp">${entry.timestamp}</div>
-        </div>
+
+container.innerHTML = entries.map(entry => `
+    <div class="guestbook-entry">
+        <div class="name">${entry[1]}</div>
+        <div class="message">${entry[2]}</div>
+        <div class="timestamp">${entry[3]}</div>
+    </div>
     `).join('');
 }
 

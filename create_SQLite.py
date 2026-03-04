@@ -24,7 +24,6 @@ try:
         cursor.execute(insert_data,data)
         cursor.execute("SELECT * FROM guestbook;")
         print(cursor.fetchall())
-
         conn.commit()
 except sqlite3.OperationalError as e:
     print("Failed to create tables:", e)

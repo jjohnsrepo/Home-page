@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 import sqlite3
 app = Flask(__name__)
 database ="./home.db"
@@ -8,8 +8,9 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/guests",methods="GET")
+@app.route("/guests",methods=["GET"])
 def guests():
+    #Needs to return an array of objects
     try:
         with sqlite3.connect(database) as conn:
             print(f"Opened database with version {sqlite3.sqlite_version}")
@@ -21,8 +22,25 @@ def guests():
         return(f"Failed to fetch tables:{e}")
 
 
-@app.route("/guest",methods="post")
+@app.route("/guest",methods=["POST"])
 def guest():
+    print("request recieved")
+    data = request.get_json()
+    insert_statement = """
+        insert into guestbook(name,message)
+        values(?,?)
+    """
+    payload = (data['name'],data['message'])
+    try:
+        with sqlite3.connect(database) as conn:
+            print(f"Opened database with version {sqlite3.sqlite_version}")
+            cursor = conn.cursor()
+            cursor.execute(insert_statement,payload)
+            conn.commit()
+            return "Successfull"
+    except sqlite3.OperationalError as e:
+        print("Failed to create tables:", e)
+    return "Faield"
 
 
     
