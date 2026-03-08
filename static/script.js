@@ -82,8 +82,8 @@ function createSparkle(x, y) {
 const days_since_wedding = date_calculator("2025-05-30")
 const days_since_aurora_birth = date_calculator("2002-9-30")  
 const days_since_justin_birth = date_calculator("2002-06-06")
-const birthday_aurora = date_calculator("2026-06-06")
-const birthday_justin = date_calculator("2026-09-30")
+const birthday_aurora = date_calculator("2026-09-22")
+const birthday_justin = date_calculator("2026-06-06")
 
 document.getElementById("days_since_wedding").textContent = days_since_wedding
 document.getElementById("days_since_aurora_birth").textContent = days_since_aurora_birth

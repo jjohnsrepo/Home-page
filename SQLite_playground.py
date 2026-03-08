@@ -4,8 +4,9 @@ database = "./home.db"
 
 conn = sqlite3.connect(database)
 cursor = conn.cursor()
-cursor.execute("insert into visitor_count(count) values (5)")
-conn.commit()
-cursor.execute("select * from visitor_count ")
+cursor.execute("select * from guestbook ")
 guestbook = cursor.fetchall()
+cursor.execute("select * from visitor_count")
+visitors = cursor.fetchall()
 print(guestbook)
+print(visitors)
