@@ -12,7 +12,6 @@ def home():
 def guests():
     try:
         with sqlite3.connect(database) as conn:
-            print(f"Opened database with version {sqlite3.sqlite_version}")
             cursor = conn.cursor()
             cursor.execute("""select * from guestbook
                             order by date_added""")
@@ -33,7 +32,6 @@ def guest():
     payload = (data['name'],data['message'])
     try:
         with sqlite3.connect(database) as conn:
-            print(f"Opened database with version {sqlite3.sqlite_version}")
             cursor = conn.cursor()
             cursor.execute(insert_statement,payload)
             conn.commit()
@@ -45,7 +43,7 @@ def guest():
 
 
 @app.route("/visitor-count", methods=["GET"])
-def visitor_count():
+def get_visitor_count():
     try:
         with sqlite3.connect(database) as conn:
             cursor = conn.cursor()
@@ -58,8 +56,20 @@ def visitor_count():
 
 
 
-    
-    
+@app.route("/visitor-count", methods=["put"])
+def update_visitor_count():
+    data = request.get_json()
+    print(data)
+    try:
+        with sqlite3.connect(database) as conn:
+            cursor = conn.cursor()
+            cursor.execute(f"UPDATE visitor_count SET count = {data+1}")
+            conn.commit()
+        return "success!"
+    except sqlite3.Error as e:
+        return jsonify({"error": str(e)}), 500
+
+
 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    app.run(host="0.0.0.0", port=5000, debug=True)

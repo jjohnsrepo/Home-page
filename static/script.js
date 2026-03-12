@@ -12,7 +12,6 @@ function date_calculator(date){
 
     if(diffInDays > 365){
         const diffInYears = Math.floor(diffInDays/365)
-        console.log(diffInYears)
         return diffInYears
     }else{
         return diffInDays
@@ -46,12 +45,22 @@ async function displayGuestbookEntries() {
 
 async function visitor_count(){
     const counter = document.getElementById('counter')
-    const data = await fetch("/visitor-count") 
-    const response = JSON.parse(data)
-    console.log(await response)
-    
+    const response = await fetch("/visitor-count")
+    const data = await response.json()
+    const visitor_count=counter.textContent = data[0][0]
+    console.log(visitor_count)
+    update_visitor_count(visitor_count)
 }
 
+async function update_visitor_count(count){
+    const response = await fetch("/visitor-count",{
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json', // Indicate the body format
+      },
+      body: JSON.stringify(count)
+}
+)}
 
 // ========================================
 // Visual Effects
@@ -119,10 +128,7 @@ document.getElementById('guestbookForm').addEventListener('submit', async functi
                 "Content-Type":"application/json"
             },
             body:JSON.stringify(entry)
-        })
-
-        console.log(await response.text())
-        
+        })        
         displayGuestbookEntries();
         this.reset();        
     }
